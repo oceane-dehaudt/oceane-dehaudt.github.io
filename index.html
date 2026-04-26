@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Océane Dehaudt | Cybersecurity</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:black;
+  color:white;
+  font-family: monospace;
+  overflow-x:hidden;
+}
+
+/* effet matrix */
+canvas {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* contenu */
+.container {
+  text-align:center;
+  padding-top:100px;
+}
+
+h1 {
+  font-size:3em;
+  letter-spacing:3px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow:0 0 5px white; }
+  to { text-shadow:0 0 20px white; }
+}
+
+.subtitle {
+  margin-top:10px;
+  color:#aaa;
+}
+
+.box {
+  margin:40px auto;
+  padding:20px;
+  border:1px solid white;
+  width:60%;
+  transition:0.3s;
+}
+
+.box:hover {
+  background:white;
+  color:black;
+  transform:scale(1.05);
+}
+
+button {
+  margin-top:30px;
+  padding:10px 20px;
+  background:black;
+  color:white;
+  border:1px solid white;
+  cursor:pointer;
+}
+
+button:hover {
+  background:white;
+  color:black;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+  <h1>OCÉANE DEHAUDT</h1>
+  <p class="subtitle">Cybersecurity • OSINT • Network Analysis</p>
+
+  <div class="box">
+    <h2>À propos</h2>
+    <p>Passionnée par la cybersécurité, j’analyse les réseaux et traque les vulnérabilités.</p>
+  </div>
+
+  <div class="box">
+    <h2>Compétences</h2>
+    <p>Wireshark • OSINT • Pentest • Analyse réseau</p>
+  </div>
+
+  <div class="box">
+    <h2>Projets</h2>
+    <p>Analyse trafic réseau • Investigation OSINT</p>
+  </div>
+
+  <button onclick="alert('Contact bientôt disponible 🔐')">Me contacter</button>
+</div>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+let letters = "01";
+letters = letters.split("");
+
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+
+let drops = [];
+for (let x = 0; x < columns; x++) drops[x] = 1;
+
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#fff";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    let text = letters[Math.floor(Math.random() * letters.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 35);
+</script>
+
+</body>
+</html>
