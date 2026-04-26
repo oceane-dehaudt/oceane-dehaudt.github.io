@@ -1,71 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Océane Dehaudt</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:black;
+  color:white;
+  font-family: monospace;
+  overflow-x:hidden;
+}
+
+/* matrix */
+canvas {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* container */
+.container {
+  text-align:center;
+  padding-top:100px;
+}
+
+h1 {
+  font-size:4em;
+  color:red;
+  letter-spacing:5px;
+  margin-bottom:10px;
+}
+
+.subtitle {
+  color:#aaa;
+}
+
+/* bouton */
+.terminal-btn {
+  margin-top:30px;
+  padding:15px 40px;
+  font-size:1.2em;
+  background:black;
+  color:red;
+  border:2px solid red;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.terminal-btn:hover {
+  background:red;
+  color:black;
+}
+
+/* terminal */
+#terminal {
+  display:none;
+  margin-top:40px;
+  width:60%;
+  margin-left:auto;
+  margin-right:auto;
+  border:1px solid red;
+  padding:20px;
+}
+
+#terminalText {
+  color:red;
+  text-align:left;
+}
+
+/* sections */
+.box {
+  margin:40px auto;
+  padding:25px;
+  border:1px solid red;
+  width:65%;
+
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.5s;
+}
+
+.box h2 {
+  color:red;
+  margin-bottom:10px;
+}
+
+.contact a {
+  color:red;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+
+<h1>OCÉANE DEHAUDT</h1>
+<p class="subtitle">Analyse réseau • OSINT • Sécurité</p>
+
+<button class="terminal-btn" onclick="openTerminal()">
+▶ RUN TERMINAL
+</button>
+
+<div id="terminal">
+<pre id="terminalText"></pre>
+</div>
+
+<!-- CONTENU -->
 <div class="box">
-  <h2>À propos</h2>
-  <p>
-    Analyse des flux réseau et investigation OSINT.  
-    Approche basée sur l’identification, la corrélation et l’interprétation des données.
-  </p>
+<h2>À propos</h2>
+<p>Analyse des flux réseau et investigation OSINT. Approche basée sur l’identification, la corrélation et l’interprétation des données.</p>
 </div>
 
 <div class="box">
-  <h2>Compétences</h2>
-  <p>
-    Analyse de trafic réseau (Wireshark)<br>
-    Recherche OSINT et corrélation d’informations<br>
-    Bases en sécurité offensive<br>
-    Compréhension des systèmes Windows et Linux
-  </p>
+<h2>Compétences</h2>
+<p>
+Analyse de trafic réseau (Wireshark)<br>
+Recherche OSINT et corrélation d’informations<br>
+Bases en sécurité offensive<br>
+Compréhension des systèmes Windows et Linux
+</p>
 </div>
 
 <div class="box">
-  <h2>Outils</h2>
-  <p>
-    Wireshark • Nmap • OSINT Framework • Linux
-  </p>
+<h2>Outils</h2>
+<p>Wireshark • Nmap • OSINT Framework • Linux</p>
 </div>
 
 <div class="box">
-  <h2>Méthodologie</h2>
-  <p>
-    Analyse → Identification → Corrélation → Interprétation → Reporting
-  </p>
+<h2>Méthodologie</h2>
+<p>Analyse → Identification → Corrélation → Interprétation → Reporting</p>
 </div>
 
 <div class="box">
-  <h2>Projets</h2>
-  <p>
-    🔎 Analyse Wireshark<br>
-    Objectif : analyser un trafic réseau<br>
-    Résultat : détection de comportements anormaux<br><br>
+<h2>Projets</h2>
+<p>
+🔎 Analyse Wireshark<br>
+Objectif : analyser un trafic réseau<br>
+Résultat : détection de comportements anormaux<br><br>
 
-    🌐 Investigation OSINT<br>
-    Objectif : collecter et recouper des informations<br>
-    Résultat : identification de données pertinentes<br><br>
+🌐 Investigation OSINT<br>
+Objectif : collecter et recouper des informations<br>
+Résultat : identification de données pertinentes<br><br>
 
-    🛠️ Scan réseau<br>
-    Objectif : identifier les services actifs<br>
-    Outil : Nmap
-  </p>
+🛠️ Scan réseau<br>
+Objectif : identifier les services actifs<br>
+Outil : Nmap
+</p>
 </div>
 
 <div class="box">
-  <h2>Niveau</h2>
-  <p>
-    Analyse réseau : intermédiaire<br>
-    OSINT : intermédiaire<br>
-    Sécurité offensive : débutant
-  </p>
+<h2>Niveau</h2>
+<p>
+Analyse réseau : intermédiaire<br>
+OSINT : intermédiaire<br>
+Sécurité offensive : débutant
+</p>
 </div>
 
 <div class="box">
-  <h2>Objectif</h2>
-  <p>
-    Développer des compétences en détection d’intrusions, analyse avancée et compréhension des systèmes.
-  </p>
+<h2>Objectif</h2>
+<p>Développer des compétences en détection d’intrusions et analyse avancée.</p>
 </div>
 
 <div class="box contact">
-  <h2>Contact</h2>
-  <p>
-    <a href="mailto:oceane.dehaudt.pro@gmail.com">oceane.dehaudt.pro@gmail.com</a>
-  </p>
+<h2>Contact</h2>
+<p>
+<a href="mailto:oceane.dehaudt.pro@gmail.com">
+oceane.dehaudt.pro@gmail.com
+</a>
+</p>
 </div>
+
+</div>
+
+<script>
+// terminal
+function openTerminal() {
+  let terminal = document.getElementById("terminal");
+  let text = document.getElementById("terminalText");
+
+  terminal.style.display = "block";
+
+  let lines = [
+    "> Access granted...",
+    "> Loading profile...",
+    "> Deploying content..."
+  ];
+
+  text.innerHTML = "";
+  let i = 0;
+
+  function typeLine() {
+    if (i < lines.length) {
+      text.innerHTML += lines[i] + "\n";
+      i++;
+      setTimeout(typeLine, 500);
+    } else {
+      reveal();
+    }
+  }
+
+  typeLine();
+}
+
+// reveal
+function reveal() {
+  let sections = document.querySelectorAll(".box");
+
+  sections.forEach((section, index) => {
+    setTimeout(() => {
+      section.style.opacity = "1";
+      section.style.transform = "translateY(0)";
+    }, index * 300);
+  });
+}
+
+// matrix
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+let letters = "01".split("");
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+
+let drops = [];
+for (let x = 0; x < columns; x++) drops[x] = 1;
+
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle = "red";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    let text = letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+    if (drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 35);
+</script>
+
+</body>
+</html>
