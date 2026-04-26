@@ -14,7 +14,6 @@ body {
   overflow-x:hidden;
 }
 
-/* effet matrix */
 canvas {
   position:fixed;
   top:0;
@@ -22,21 +21,21 @@ canvas {
   z-index:-1;
 }
 
-/* contenu */
 .container {
   text-align:center;
-  padding-top:100px;
+  padding-top:120px;
 }
 
 h1 {
-  font-size:3em;
-  letter-spacing:3px;
+  font-size:4em;
+  letter-spacing:5px;
+  color:red;
   animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-  from { text-shadow:0 0 5px white; }
-  to { text-shadow:0 0 20px white; }
+  from { text-shadow:0 0 5px red; }
+  to { text-shadow:0 0 25px red; }
 }
 
 .subtitle {
@@ -46,31 +45,27 @@ h1 {
 
 .box {
   margin:40px auto;
-  padding:20px;
-  border:1px solid white;
+  padding:25px;
+  border:1px solid red;
   width:60%;
   transition:0.3s;
 }
 
 .box:hover {
-  background:white;
+  background:red;
   color:black;
   transform:scale(1.05);
 }
 
-button {
-  margin-top:30px;
-  padding:10px 20px;
-  background:black;
-  color:white;
-  border:1px solid white;
-  cursor:pointer;
+.contact a {
+  color:red;
+  text-decoration:none;
 }
 
-button:hover {
-  background:white;
-  color:black;
+.contact a:hover {
+  text-decoration:underline;
 }
+
 </style>
 </head>
 
@@ -84,7 +79,7 @@ button:hover {
 
   <div class="box">
     <h2>À propos</h2>
-    <p>Passionnée par la cybersécurité, j’analyse les réseaux et traque les vulnérabilités.</p>
+    <p>Étudiante en cybersécurité, spécialisée en analyse réseau et investigation OSINT.</p>
   </div>
 
   <div class="box">
@@ -97,7 +92,12 @@ button:hover {
     <p>Analyse trafic réseau • Investigation OSINT</p>
   </div>
 
-  <button onclick="alert('Contact bientôt disponible 🔐')">Me contacter</button>
+  <div class="box contact">
+    <h2>Contact</h2>
+    <p>Email : <a href="mailto:oceanedehaudtt@gmail.com">oceanedehaudtt@gmail.com</a></p>
+    <p>Téléphone : <a href="tel:+32473671622">0473671622</a></p>
+  </div>
+
 </div>
 
 <script>
@@ -107,9 +107,7 @@ const ctx = canvas.getContext("2d");
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-let letters = "01";
-letters = letters.split("");
-
+let letters = "01".split("");
 let fontSize = 14;
 let columns = canvas.width / fontSize;
 
@@ -120,7 +118,7 @@ function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#fff";
+  ctx.fillStyle = "red";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
